@@ -1,0 +1,11 @@
+[Default Applications]
+text/html=vivaldi-snapshot.desktop
+x-scheme-handler/http=vivaldi-snapshot.desktop
+x-scheme-handler/https=vivaldi-snapshot.desktop
+x-scheme-handler/about=vivaldi-snapshot.desktop
+x-scheme-handler/unknown=vivaldi-snapshot.desktop
+pdf=vivaldi-snapshot.desktop
+application/pdf=vivaldi-snapshot.desktop
+
+[Added Associations]
+text/markdown=userapp-micro.sh-59BX01.desktop;
