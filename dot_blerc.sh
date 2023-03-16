@@ -37,21 +37,21 @@ ble-bind -f 'C-g' 'atimeofday/help-grep'
 # Ergonomic & compatibility key rebinds
 function ble/widget/atimeofday/semicolon { ble/widget/self-insert; }
 function ble/widget/atimeofday/colon { ble/widget/insert-string ':'; }
-function ble/widget/atimeofday/tilda { ble/widget/insert-string '~'; }
+function ble/widget/atimeofday/tilda { ble/widget/insert-string '~/'; }
 ble-bind -f 'M-;' 'atimeofday/semicolon'
 ble-bind -f 'M-:' 'atimeofday/colon'
 ble-bind -f ':' 'atimeofday/tilda'
 
-# 9 swap
-function ble/widget/atimeofday/leftparen { ble/widget/insert-string '('; }
-function ble/widget/atimeofday/nine { ble/widget/insert-string '9'; }
-ble-bind -f '9' 'atimeofday/leftparen'
-ble-bind -f '(' 'atimeofday/nine'
-# 0 swap
-function ble/widget/atimeofday/rightparen { ble/widget/insert-string ')'; }
-function ble/widget/atimeofday/zero { ble/widget/insert-string '0'; }
-ble-bind -f '0' 'atimeofday/rightparen'
-ble-bind -f ')' 'atimeofday/zero'
+# # 9 swap
+# function ble/widget/atimeofday/leftparen { ble/widget/insert-string '('; }
+# function ble/widget/atimeofday/nine { ble/widget/insert-string '9'; }
+# ble-bind -f '9' 'atimeofday/leftparen'
+# ble-bind -f '(' 'atimeofday/nine'
+# # 0 swap
+# function ble/widget/atimeofday/rightparen { ble/widget/insert-string ')'; }
+# function ble/widget/atimeofday/zero { ble/widget/insert-string '0'; }
+# ble-bind -f '0' 'atimeofday/rightparen'
+# ble-bind -f ')' 'atimeofday/zero'
 
 # Built in rebinds
 ble-bind -f 'delete'    'delete-region-or delete-forward-char'

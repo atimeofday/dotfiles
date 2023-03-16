@@ -1,8 +1,9 @@
 /* Vivaldi CSS Tweaks */
 
 /* Main */
+/* #webview-container { margin: 8px 8px 8px 8px; } */
 #main > .inner, .toolbar-mainbar, .footer { 
-    background-color: #00000000 !important; 
+    background-color: #000000AA !important; 
 	outline: none !important; 
 	box-shadow: none !important;
 } 
@@ -37,12 +38,8 @@ button {
 } 
 
 /* Tiling */
-#webview-container { 
-	margin: 8px 8px 8px 8px; 
-} 
 #webview-container:has(#webpage-stack .mosaic.visible) { 
     padding: 0; 
-	/* margin: 0; */
     /* margin: 8px 0 8px 0; */
     box-shadow: none; 
 } 
@@ -60,12 +57,8 @@ button.ToolbarButton-Button.button-textonly[name="Clock"] {
     display: none; 
 } 
 .UrlField { 
-	/* padding: 0px 8px 0px 8px; */
-	padding: 0px 8px 0px 4px;
+	padding: 0px 8px 0px 8px;
 } 
-.UrlField--IsEmpty .UrlBar-UrlField, .UrlField--HasEditText .UrlBar-UrlField, .UrlField:focus .UrlBar-UrlField, .UrlField:focus-within .UrlBar-UrlField {
-    padding: 5px 0px;
-}
 .UrlFragment-Wrapper { 
     padding: 6px 6px 6px 6px; 
 } 
@@ -78,13 +71,10 @@ button.ToolbarButton-Button.button-textonly[name="Clock"] {
 .SiteInfoButton-Favicon, .SiteInfoButton-SearchEngineFavicon, .SiteInfoButton-SecurityBadge {
 	opacity: 0.8;
 }
-.SiteInfoButton {
-	margin-left: 6px !important;
-}
 .UrlBar-AddressField { 
-	/* background-color: transparent; */
-	/* outline: none !important; */
-	/* box-shadow: none !important; */
+	background-color: transparent; 
+	outline: none !important; 
+	box-shadow: none !important;
     border: none !important;
 } 
 input::placeholder {
@@ -159,32 +149,25 @@ span.title {
 }
 
 /* Panels */
-/* .left .panel-group .panel-collapse-guard { */
-/* .panel-group .panel-collapse-guard { */
-    /* min-width: 100% !important; */
-/* } */
-/* #panels-container.left:not(.icons) .panel-group, #panels-container.left.icons:not(:has(.SlideBar)) { */
-    /* left: 0 !important; */
-/* } */
-/* #panels .webpanel-stack .webpanel .webpanel-header, #switch { */
-    /* display: none; */
-/* } */
-#panels .webpanel-stack .webpanel .webpanel-header { 
+.left .panel-group .panel-collapse-guard { 
+    min-width: 100% !important; 
+} 
+#panels-container.left:not(.icons) .panel-group, #panels-container.left.icons:not(:has(.SlideBar)) { 
+    left: 0 !important; 
+} 
+#panels .webpanel-stack .webpanel .webpanel-header, #switch { 
     display: none; 
 } 
-/* .left .panel-group .panel-collapse-guard { */
-    /* align-self: flex-start; */
-/* } */
-/* #panels-container.left.icons { */
-    /* width: 0 !important; */
-/* } */
-/* #switch { */
-	/* /* display: none !important; */ */
-	/* width: 0 !important; */
-/* } */
-.panel-group, #panels-container.left.icons, #panels-container.right.icons, .panel .SlideBar--FullWidth.alternate, #panels-container.right {
-    border: none !important;
-}
-#panels-container.right:not(.icons) .panel-group, #panels-container.right.icons:not(:has(.SlideBar)) {
-	border: none !important;
+.left .panel-group .panel-collapse-guard { 
+    align-self: flex-start; 
+} 
+#panels-container.left.icons { 
+    width: 0 !important; 
+} 
+#switch { 
+	/* display: none !important; */ 
+	width: 0 !important; 
+} 
+.panel-group, #panels-container.left.icons, .panel .SlideBar--FullWidth.alternate {
+    border: none;
 }
