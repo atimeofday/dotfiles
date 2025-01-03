@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+PATH="$HOME/.cargo/bin:$PATH"
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
@@ -13,15 +15,18 @@ fi
 export PATH
 
 # User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
-fi
+# if [ -d ~/.bashrc.d ]; then
+	# for rc in ~/.bashrc.d/*; do
+		# if [ -f "$rc" ]; then
+			# . "$rc"
+		# fi
+	# done
+# fi
+# 
+# unset rc
 
-unset rc
+# [ -n "$SSH_CONNECTION" ] && unset SSH_ASKPASS
+# export GIT_ASKPASS=
 
 export MICRO_TRUECOLOR=1
 export EDITOR=/usr/bin/micro
@@ -66,7 +71,8 @@ function m() {
 	fi
 }
 
-alias rc="m ~/.bashrc && source ~/.bashrc && cp ~/.bashrc ~/.local/share/chezmoi/dot_bashrc"
+# alias rc="m ~/.bashrc && source ~/.bashrc && cp ~/.bashrc ~/.local/share/chezmoi/dot_bashrc"
+alias rc="m ~/.bashrc && source ~/.bashrc"
 alias bc="m ~/.blerc.sh && source ~/.bashrc"
 alias mc="m ~/.config/micro/bindings.json"
 alias oc="m ~/.bleopts.sh && source ~/.bashrc"
@@ -74,23 +80,31 @@ alias sc="m ~/.config/starship.toml && source ~/.bashrc"
 alias nc="m ~/.gnome2/accels/nemo"
 alias vc="m ~/.config/vivaldi-css/tweaks.css"
 alias dc="m ~/.config/.dircolors && source ~/.bashrc"
+alias tc="m /var/home/atimeofday/.var/app/com.raggesilver.BlackBox/data/blackbox/schemes/Custom-Catppuccin-Mocha.json"
+alias fc="m ~/.config/forge/config/windows.json"
 
 alias ms="m ~/.config/micro/settings.json"
 alias mh="cd ~/Programs/micro-source/runtime/help"
 
+alias data="cd /var/mnt/Data/"
 alias dt="cd /var/mnt/Data/"
 alias dw="cd ~/Downloads" 
 
 alias extensions="cd ~/.local/share/gnome-shell/extensions"
 alias blesh="cd ~/.local/share/blesh/"
 alias apps="cd ~/.local/share/applications"
+alias flatpak-apps="cd ~/.local/share/flatpak/exports/share/applications"
 
-alias pptx-pdf="soffice --headless --convert-to pdf $1"
+alias pic="cd ~/Pictures"
+alias pro="cd ~/Programs"
+alias wall="cd ~/Pictures/Wallpapers"
+
+alias pptx-pdf="distrobox enter fedora37 -e soffice --headless --convert-to pdf $1"
 alias sr="speedread $1"
 alias db="distrobox enter fedora37"
-alias f37="distrobox enter fedora37"
-alias arch="distrobox enter arch"
-alias void="distrobox enter void"
+alias fedora="distrobox enter fedora"
+alias projects="distrobox enter projects"
+alias memc="cd /var/home/atimeofday/Projects/memory-collector && distrobox enter memory-collector"
 
 # alias m="micro $1"
 alias f="m $1"
@@ -104,7 +118,7 @@ alias x="open"
 alias k="open"
 alias j="cd"
 alias n="nnn"
-alias g="pwd | xsel -bi"
+alias g="pwd | tr -d '\n' | wl-copy"
 alias s='sudo $(history -p \!-2)'
 alias p="cd ~/Programs"
 
@@ -119,3 +133,18 @@ function bu {
 function mergepdf () {
 	gs -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$3 -dBATCH $1 $2
 }
+
+function dlp () {
+	yt-dlp -f mp4 -x --audio-format mp3 "$1"
+}
+
+# curl -sS https://starship.rs/install.sh | sh
+
+alias work="cd /var/mnt/Data/Documents/work/Applications" 
+alias box-starship="curl -sS https://starship.rs/install.sh | sh" 
+alias box-initf="sudo dnf install wl-clipboard git && curl -sS https://starship.rs/install.sh | sh && source ~/.bashrc"
+alias vtt="python vttengine.py"
+alias r='python /var/home/atimeofday/Projects/routines/routines.py' 
+alias routines='cd /var/home/atimeofday/Projects/routines && m /var/home/atimeofday/Projects/routines/routines.py'
+
+export GDK_BACKEND=wayland

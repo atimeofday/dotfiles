@@ -12,14 +12,20 @@
 html, body, #browser, #main { 
     -webkit-font-smoothing: subpixel-antialiased !important; 
 } 
-.tab, #tabs-container, #panels-container, #tabs-tabbar-container, .SiteInfoButton, .UrlBar-UrlField, .UrlFragment-Wrapper { 
+.tab, .tabbar-wrapper, #tabs-container, #panels-container, #tabs-tabbar-container, .SiteInfoButton, .UrlBar-UrlField, .UrlFragment-Wrapper { 
     color: #eeeeee; 
     background-color: transparent !important; 
 	box-shadow: none !important; 
 } 
-#header, .button-toolbar-menu-indicator, .mosaic-split-line, .SpeedDialView-Settings-Button, .BookmarkButton, .stack-counter, .svg-tab-stack { 
+/*  .BookmarkButton, */
+#header, .button-toolbar-menu-indicator, .mosaic-split-line, .SpeedDialView-Settings-Button, .stack-counter, .svg-tab-stack { 
     display: none !important; 
 } 
+
+/* .dials-wrapper:not(:hover) { */
+.dials-wrapper {
+    opacity: 0;
+}
 
 /* Icons */
 button {
@@ -38,17 +44,23 @@ button {
 
 /* Tiling */
 #webview-container { 
-	margin: 8px 8px 8px 8px; 
+	margin: 8px;
+	--mosaicPadding: 5px !important; 
+	box-shadow: none !important; 
 } 
 #webview-container:has(#webpage-stack .mosaic.visible) { 
-    padding: 0; 
-	/* margin: 0; */
-    /* margin: 8px 0 8px 0; */
-    box-shadow: none; 
+    /* padding: 0; */
+    /* margin: 8px 0 8px 0 !important; */
+    /* margin: 0 !important; */
+    /* box-shadow: none; */
 } 
+
 .hasfocus .tiled.webpageview.active { 
     box-shadow: 0 0 0 1px #aa10ff50; 
 } 
+.tile {
+    box-shadow: none !important;
+}
 
 /* Toolbar */
 button.ToolbarButton-Button.button-textonly[name="Clock"] {
@@ -56,9 +68,9 @@ button.ToolbarButton-Button.button-textonly[name="Clock"] {
     padding-left: 8px;
     font-size: 1.15em;
 }
-.toolbar-insideinput { 
-    display: none; 
-} 
+/* .toolbar-insideinput { */
+    /* display: none; */
+/* } */
 .UrlField { 
 	/* padding: 0px 8px 0px 8px; */
 	padding: 0px 8px 0px 4px;
@@ -66,9 +78,6 @@ button.ToolbarButton-Button.button-textonly[name="Clock"] {
 .UrlField--IsEmpty .UrlBar-UrlField, .UrlField--HasEditText .UrlBar-UrlField, .UrlField:focus .UrlBar-UrlField, .UrlField:focus-within .UrlBar-UrlField {
     padding: 5px 0px;
 }
-.UrlFragment-Wrapper { 
-    padding: 6px 6px 6px 6px; 
-} 
 .Button-Area-Large .button-icon:not(.favicon), .Button-Area-Large .button-icon svg, .toolbar-large .button-icon:not(.favicon), .toolbar-large .button-icon svg { 
     opacity: 0.8; 
 } 
@@ -82,16 +91,15 @@ button.ToolbarButton-Button.button-textonly[name="Clock"] {
 	margin-left: 6px !important;
 }
 .UrlBar-AddressField { 
-	/* background-color: transparent; */
-	/* outline: none !important; */
-	/* box-shadow: none !important; */
     border: none !important;
+    outline: 1px solid #555560;
+    background-color: #252527DD;
 } 
 input::placeholder {
 	color: transparent;
 }
 .UrlField--HasEditText .UrlBar-UrlField, .UrlField:focus .UrlBar-UrlField, .UrlField:focus-within .UrlBar-UrlField { 
-    color: #10ffaa !important; 
+    color: #88CCFF !important; 
    	/* background-color: #00000088 !important; */
 } 
 .accordion-toggle-arrow.closed.active, .accordion-toggle-arrow {
@@ -118,7 +126,7 @@ span.title {
     background-color: #aa10ff50 !important; 
 } 
 .tab:hover, .button-toolbar.tabbar-workspace-button.workspace-popup:hover { 
-	background-color: #10ffaa50 !important; 
+	background-color: #10aaff50 !important; 
 } 
 .button-toolbar.tabbar-workspace-button.workspace-popup:hover { 
     background-color: #00000000 !important; 
@@ -133,7 +141,7 @@ span.title {
     display: none; 
 } 
 .tab.marked, .tab-in-accordion .tab.marked {
-    background-color: #1090ff50 !important;
+    background-color: #1090ff66 !important;
 }
 .svg-tab-selection .stack-frame, .svg-tab-selection .inner, .tab-in-accordion.tab-first-in-group { 
     /* stroke: #252529 !important; */
@@ -146,7 +154,7 @@ span.title {
   fill: none !important;
 }
 .tab-indicator {
-    background-color: #1050ff90 !important;
+    background-color: #1050ff20 !important;
 }
 .tab-accordion.active, .tab-in-accordion.tab-first-in-group, .tab-accordion {
     color: #00eeff !important;
@@ -158,33 +166,45 @@ span.title {
     box-shadow: none;
 }
 
-/* Panels */
-/* .left .panel-group .panel-collapse-guard { */
-/* .panel-group .panel-collapse-guard { */
-    /* min-width: 100% !important; */
-/* } */
-/* #panels-container.left:not(.icons) .panel-group, #panels-container.left.icons:not(:has(.SlideBar)) { */
-    /* left: 0 !important; */
-/* } */
-/* #panels .webpanel-stack .webpanel .webpanel-header, #switch { */
+/* #panels .webpanel-stack .webpanel .webpanel-header { */
     /* display: none; */
 /* } */
-#panels .webpanel-stack .webpanel .webpanel-header { 
-    display: none; 
-} 
-/* .left .panel-group .panel-collapse-guard { */
-    /* align-self: flex-start; */
-/* } */
-/* #panels-container.left.icons { */
-    /* width: 0 !important; */
-/* } */
-/* #switch { */
-	/* /* display: none !important; */ */
-	/* width: 0 !important; */
-/* } */
+
 .panel-group, #panels-container.left.icons, #panels-container.right.icons, .panel .SlideBar--FullWidth.alternate, #panels-container.right {
     border: none !important;
 }
 #panels-container.right:not(.icons) .panel-group, #panels-container.right.icons:not(:has(.SlideBar)) {
 	border: none !important;
+}
+
+button.SlideBar.SlideBar--FullWidth.alternate {
+    display: none;
+}
+.panel-group {
+    background-color: #252527AA;
+    margin: 8px 0px 8px 0px;
+    border-radius: 14px;
+    padding-left: 1px;
+}
+#panels-container {
+    padding-left: 1px;
+}
+
+.density-on .tab-wrapper {
+    margin: 1px 0px
+}
+
+.mainbar {
+    background-color: transparent !important;
+    border: none;
+}
+
+.tab-indicator.active {
+    height: 12px !important;
+    border-bottom-width: 6px !important;
+    background-color: #DDEEFFAA !important;
+}
+
+.tab-indicator {
+    background-color: #EEEEFF66 !important;
 }

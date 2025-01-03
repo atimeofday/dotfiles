@@ -1,10 +1,17 @@
 
 # Magic copy
 function ble/widget/atimeofday/copy {
-  ble/widget/copy-region-or copy-backward-uword
-  ble/util/put "${_ble_edit_kill_ring[0]}" | xsel -bi
+	ble/widget/copy-region-or copy-backward-uword
+	ble/util/put "${_ble_edit_kill_ring[0]}" | wl-copy
 }
 ble-bind -f 'C-c' 'atimeofday/copy'
+
+function ble/widget/atimeofday/cut {
+	ble/widget/copy-region
+	ble/util/put "${_ble_edit_kill_ring[0]}" | wl-copy
+	ble/widget/delete-region
+}
+ble-bind -f 'C-x' 'atimeofday/cut'
 
 # Magic auto-cd function
 function ble/widget/atimeofday/enter {
@@ -18,7 +25,7 @@ function ble/widget/atimeofday/enter {
 		ble/widget/insert-string $input
 		;;
   	*) 
-		ble/widget/insert-string 'j '$input
+		ble/widget/insert-string 'cd '$input
 		ble/widget/complete
 		;;
 	esac
@@ -56,9 +63,9 @@ ble-bind -f ':' 'atimeofday/tilda'
 # Built in rebinds
 ble-bind -f 'delete'    'delete-region-or delete-forward-char'
 ble-bind -f 'C-delete'  'delete-region-or delete-forward-eword'
-ble-bind -f 'C-h'       'delete-region-or delete-backward-eword'
+ble-bind -f 'C-?'       'delete-region-or delete-backward-eword'
 # ---
-ble-bind -f 'C-x'       'kill-region-or kill-eword'
+# ble-bind -f 'C-x'       'kill-region-or kill-eword'
 ble-bind -f 'C-k'       'kill-line'
 # ---
 ble-bind -f 'right'     '@nomarked forward-eword'

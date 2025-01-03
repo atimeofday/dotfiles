@@ -8,8 +8,8 @@ ble-face -s disabled                  fg=grey
 ble-face -s overwrite_mode            fg=red
 # ---
 ble-face -s auto_complete             fg=teal
-# ble-face -s menu_filter_fixed         bold
-# ble-face -s menu_filter_input         fg=teal
+ble-face -s menu_filter_fixed         bold
+ble-face -s menu_filter_input         fg=teal
 ble-face -s vbell                     reverse
 ble-face -s vbell_erase               fg=cyan
 ble-face -s vbell_flash               fg=green,reverse

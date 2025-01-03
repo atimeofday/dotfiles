@@ -1,7 +1,9 @@
 {
     "Alt-/": "lua:comment.comment",
     "Ctrl-c": "Copy",
-    "OldBackspace": "DeleteWordLeft",
+    "OldBackspace": "Backspace",
+    "Backspace": "DeleteWordLeft",
+	"Ctrl-Backspace": "Backspace",
     "Ctrl-Delete": "DeleteWordRight",
     "CtrlUnderscore": "lua:comment.comment",
 	"Ctrl-l": "CopyLine",
@@ -31,3 +33,4 @@
 	"Alt-PageUp": "StartOfLine",
 	"Alt-PageDown": "EndOfLine"
 }
+
