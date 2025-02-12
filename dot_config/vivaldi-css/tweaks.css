@@ -208,3 +208,22 @@ button.SlideBar.SlideBar--FullWidth.alternate {
 .tab-indicator {
     background-color: #EEEEFF66 !important;
 }
+
+#footer {
+    background: transparent;
+    border-top: none;
+}
+
+.ExtensionIcon.extensionId.ExtensionIcon--Hidden {
+    background: transparent;
+}
+.button-toolbar.ExtensionToggleIcon.ExtensionToggleIcon--extensionsExpanded {
+    background: transparent;
+}
+
+#browser .tile:has(> .tiled.webpageview) {
+    border: var(--mosaicPadding) solid transparent;
+}
+#webview-container {
+    --bgCoverShadow: none;
+}
